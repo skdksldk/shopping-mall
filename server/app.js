@@ -6,7 +6,7 @@ import connectDB from './config/db.js';
 
 import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
-
+import uploadRoutes from './routes/uploadRoutes.js';
 
 
 var app = express();
@@ -19,6 +19,7 @@ connectDB();
 app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/upload', uploadRoutes);
 
 
 // catch 404 and forward to error handler

@@ -3,39 +3,41 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import {
-    userLoginReducer
-    userRegisterReducer
+  userLoginReducer,
+  userRegisterReducer
 } from './reducers/userReducers';
 import {
   productListReducer,
-   productDeleteReducer
+  productDeleteReducer,
+  productCreateReducer
 } from './reducers/productReducers';
-
 import { logger } from 'redux-logger';
 
 
+
 const reducer = combineReducers({
-    userLogin: userLoginReducer,
-    userRegister: userRegisterReducer
-     productList: productListReducer,
-      productDelete: productDeleteReducer
+  userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
+  productList: productListReducer,
+  productDelete: productDeleteReducer,
+  productCreate: productCreateReducer
 });
 
-const userInfoFromStorage = localStorage.getItem('userInfo') ?
-    JSON.parse(localStorage.getItem('userInfo')) :
-    null;
+const userInfoFromStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
+  : null;
 
 
 const initialState = {
-    userLogin: { userInfo: userInfoFromStorage }
+  userLogin: { userInfo: userInfoFromStorage }
 };
 
 //const middleware = [thunk];
 
 const store = createStore(
-    reducer,
-    initialState,
-    composeWithDevTools(applyMiddleware(thunk, logger))
+  reducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(thunk, logger))
 );
 
 export default store;
