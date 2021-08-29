@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProductsPage from './pages/ProductsPage';
+import ProductListPage from './pages/ProductListPage';
 
 function App() {
     return ( <
@@ -26,6 +27,16 @@ function App() {
         component = { RegisterPage }
         />
         <Route exact path='/shop' component={ProductsPage} />
+         <Route
+            exact
+            path='/admin/productlist'
+            component={ProductListPage}
+          />
+          <Route
+            exact
+            path='/admin/productlist/:pageNumber'
+            component={ProductListPage}
+          />
         < /
         main >
 
