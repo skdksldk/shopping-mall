@@ -7,37 +7,48 @@ import RegisterPage from './pages/RegisterPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductListPage from './pages/ProductListPage';
 import ProductCreatePage from './pages/ProductCreatePage';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
-  return (
-    <div className="wrapper">
-      <Router>
-        <Header />
-        <main>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/login' component={LoginPage} />
-          <Route exact path='/register' component={RegisterPage} />
-          <Route exact path='/shop' component={ProductsPage} />
-          <Route
-            exact
-            path='/admin/productlist'
-            component={ProductListPage}
-          />
-          <Route
-            exact
-            path='/admin/productlist/:pageNumber'
-            component={ProductListPage}
-          />
-          <Route
-            exact
-            path='/admin/product/create'
-            component={ProductCreatePage}
-          />
-        </main>
+    return ( <
+        div className = "wrapper" >
+        <
+        Router >
+        <
+        Header / >
+        <
+        main >
+        <
+        Route exact path = '/'
+        component = { HomePage }
+        /> <
+        Route exact path = '/login'
+        component = { LoginPage }
+        /> <
+        Route exact path = '/register'
+        component = { RegisterPage }
+        /> <
+        Route exact path = '/shop'
+        component = { ProductsPage }
+        /> <
+        Route exact path = '/admin/productlist'
+        component = { ProductListPage }
+        /> <
+        Route exact path = '/admin/productlist/:pageNumber'
+        component = { ProductListPage }
+        /> <
+        Route exact path = '/admin/product/create'
+        component = { ProductCreatePage }
+        /> <
+        Route exact path = '/shop/product/:id'
+        component = { ProductDetail }
+        /> <
+        /main>
 
-      </Router>
-    </div>
-  );
+        <
+        /Router> <
+        /div>
+    );
 }
 
 export default App;
