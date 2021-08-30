@@ -23,7 +23,7 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDelete: productDeleteReducer,
   productCreate: productCreateReducer,
-   productDetails: productDetailsReducer,
+  productDetails: productDetailsReducer,
   productReviewCreate: productReviewCreateReducer
 });
 
