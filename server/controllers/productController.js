@@ -1,32 +1,29 @@
 import asyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
 
-// @description    Fetch all products
-// @route          GET /api/products
-// @access         Public
-const getProducts = asyncHandler(async (req, res) => {
+
+const getProductList = asyncHandler(async (req, res) => {
   const pageSize = 9;
   const page = Number(req.query.pageNumber) || 1;
 
   const keywordFilter = req.query.keyword
     ? {
         name: {
-          // $regex is for insufficient user keyword  e.g. iph = iphone
           $regex: req.query.keyword,
-          $options: 'i',
-        },
+          $options: 'i'
+        }
       }
     : {};
 
   const categoryFilter = req.query.category
     ? {
-        category: req.query.category,
+        category: req.query.category
       }
     : {};
 
   const count = await Product.countDocuments({
     ...keywordFilter,
-    ...categoryFilter,
+    ...categoryFilter
   });
   const products = await Product.find({ ...keywordFilter, ...categoryFilter })
     .limit(pageSize)
@@ -35,11 +32,9 @@ const getProducts = asyncHandler(async (req, res) => {
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
-// @description    Fetch single product
-// @route          GET /api/products/.id
-// @access         Public
-const getProductById = asyncHandler(async (req, res) => {
-  const product = await Product.findById(req.params.id); // findById means find specific product coz _id is unique
+
+const getProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
 
   if (product) {
     res.json(product);
@@ -49,9 +44,7 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
-// @description    Delete a product
-// @route          DELETE /api/products/:id
-// @access         Private/Admin
+
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
 
@@ -64,9 +57,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
   }
 });
 
-// @description    Create a product
-// @route          POST /api/products
-// @access         Private/Admin
+
 const createProduct = asyncHandler(async (req, res) => {
   const {
     name,
@@ -75,11 +66,11 @@ const createProduct = asyncHandler(async (req, res) => {
     image,
     brand,
     category,
-    countInStock,
+    countInStock
   } = req.body;
 
   const product = new Product({
-    name, // same as name: name; => key and variabe have same name
+    name,
     price,
     user: req.user._id,
     image,
@@ -87,16 +78,14 @@ const createProduct = asyncHandler(async (req, res) => {
     category,
     countInStock,
     numReviews: 0,
-    description,
+    description
   });
 
   const createdProduct = await product.save();
   res.status(201).json(createdProduct);
 });
 
-// @description    Update a product
-// @route          PUT /api/products/:id
-// @access         Private/Admin
+
 const updateProduct = asyncHandler(async (req, res) => {
   const {
     name,
@@ -105,7 +94,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     image,
     brand,
     category,
-    countInStock,
+    countInStock
   } = req.body;
 
   const product = await Product.findById(req.params.id);
@@ -127,9 +116,7 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 });
 
-// @description    Create new review
-// @route          POST /api/products/:id/reviews
-// @access         Private
+
 const createProductReview = asyncHandler(async (req, res) => {
   const { rating, comment } = req.body;
 
@@ -169,10 +156,10 @@ const createProductReview = asyncHandler(async (req, res) => {
 });
 
 export {
-  getProducts,
-  getProductById,
+  getProductList,
+  getProduct,
   deleteProduct,
   createProduct,
   updateProduct,
-  createProductReview,
+  createProductReview
 };
