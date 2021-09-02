@@ -106,3 +106,50 @@
     color: white;
   }
 }
+
+
+
+.nav__list {
+  display: block;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 15%;
+  position: fixed;
+  margin-top: 8rem;
+
+  .active {
+    color: #FFCC33;
+  }
+
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__item {
+    padding: 0.5rem;
+    font-size: 15px;
+    /*border-bottom: 3px solid;*/
+  }
+  &__item2 {
+    padding: 0.5rem;
+    font-size: 20px;
+    border-bottom: 3px solid;
+    border-bottom: 3px solid #FFCC33;
+  }
+
+  &__item:hover {
+    color: #FFCC33;
+    /*border-bottom: 3px solid #FFCC33;*/
+  }
+
+  &__itemline {
+    padding: 0.5rem;
+    font-size: 20px;
+    border-bottom: 3px solid;
+  }
+
+}
