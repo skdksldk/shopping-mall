@@ -8,7 +8,7 @@ import MyPage from './pages/MyPage';
 import RegisterPage from './pages/RegisterPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductManagePage from './pages/ProductManagePage';
-import ProductCreatePage from './pages/ProductCreatePage';
+import ProductAddPage from './pages/ProductAddPage';
 import ProductDetail from './pages/ProductDetail';
 import ProductEditPage from './pages/ProductEditPage';
 import SearchPage from './pages/SearchPage';
@@ -60,7 +60,7 @@ function App() {
         component = { ProductManagePage }
         /> <
         Route exact path = '/admin/product/create'
-        component = { ProductCreatePage }
+        component = { ProductAddPage }
         /> <
         Route exact path = '/admin/product/:id/edit'
         component = { ProductEditPage }
@@ -97,12 +97,12 @@ function App() {
         /> <
         Route exact path = '/admin/orderlist'
         component = { OrderListPage }
-        /> <
-        /main>
+        /> < /
+        main >
 
         <
-        /Router> <
-        /div>
+        /Router> < /
+        div >
     );
 }
 

@@ -28,20 +28,28 @@ const Nav = () => {
         NavLink exact to = '/shop'
         activeClassName = 'active' >
         ALL <
-        /NavLink> <
-        /li> <
+        /NavLink> < /
+        li > <
         li className = { 'nav__list__item' } >
         <
-        NavLink to = '/shop/category/coats'
+        NavLink to = '/shop/category/outers'
         activeClassName = 'active' >
-        COATS & JACKETS <
-        /NavLink> <
-        /li> <
+        OUTERS <
+        /NavLink> < /
+        li > <
         li className = { 'nav__list__item' } >
         <
         NavLink to = '/shop/category/tops'
         activeClassName = 'active' >
         TOPS <
+        /NavLink> < /
+        li >
+        <
+        li className = { 'nav__list__item' } >
+        <
+        NavLink to = '/shop/category/pants'
+        activeClassName = 'active' >
+        PANTS <
         /NavLink> <
         /li> <
         li className = { 'nav__list__item' } >
@@ -49,19 +57,19 @@ const Nav = () => {
         NavLink to = '/shop/category/dresses'
         activeClassName = 'active' >
         DRESSES <
-        /NavLink> <
-        /li> <
+        /NavLink> < /
+        li > <
         li className = { 'nav__list__item' } >
         <
-        NavLink to = '/shop/category/bottoms'
+        NavLink to = '/shop/category/caps'
         activeClassName = 'active' >
-        BOTTOMS <
-        /NavLink> <
-        /li> <
-        /ul> <
-        /div> <
-        /nav> <
-        /header>
+        CAPS <
+        /NavLink> < /
+        li > <
+        /ul> < /
+        div > <
+        /nav> < /
+        header >
     );
 };
 
