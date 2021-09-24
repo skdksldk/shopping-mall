@@ -1,0 +1,37 @@
+.product__create {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  /* max-width: 1500px;
+    padding: 10rem 0;
+    margin: auto;
+    margin-left: 15%; */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.product__create table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product__create th, .product__create td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+
+.product__create input {
+  height: auto;
+}
+
+.product__create select {
+  width: 100%;
+  height: auto;
+}
+/*# sourceMappingURL=product.css.map */

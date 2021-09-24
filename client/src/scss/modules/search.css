@@ -1,0 +1,32 @@
+.search__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem 3rem;
+  width: 100%;
+  /*position: fixed;*/
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+}
+
+.search__form input {
+  font-size: 1.5rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  height: 2rem;
+  width: 600px;
+  margin-right: 1rem;
+}
+
+.search__form__btn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=search.css.map */
