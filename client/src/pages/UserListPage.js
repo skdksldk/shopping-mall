@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { listUsers, deleteUser } from '../actions/userActions';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { listUsers, deleteUser } from '../actions/userActions';
 import Meta from '../components/Meta';
+import {
+  faCheck,
+  faEdit,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UserListPage = ({ history }) => {
   const dispatch = useDispatch();
@@ -34,9 +40,9 @@ const UserListPage = ({ history }) => {
 
   return (
     <div className='container'>
-      <Meta title='Users List | ADMIN PAGE' />
-      <h3 className='admin__list__title'>USERS</h3>
-      <div className='admin__list'>
+      <Meta title='JUN | Users List' />
+      <h3 className='common__list__title'>사용자 관리</h3>
+      <div className='common__list'>
         {loading ? (
           <Loader />
         ) : error ? (
@@ -44,13 +50,14 @@ const UserListPage = ({ history }) => {
             <Message>{error}</Message>
           </div>
         ) : (
-          <table className='admin__list__table'>
+          <table className='common__list__table'>
             <thead>
               <tr>
-                <th>NO.</th>
-                <th>NAME</th>
-                <th>EMAIL</th>
-                <th>ADMIN</th>
+                <th>순번</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>관리자</th>
+                <th>수정 / 삭제</th>
               </tr>
             </thead>
             <tbody>
@@ -64,29 +71,33 @@ const UserListPage = ({ history }) => {
                     </td>
                     <td>
                       {user.isAdmin ? (
-                        <i
-                          className='fas fa-check'
+                        <FontAwesomeIcon
+                        icon={faCheck}
                           style={{ color: 'green' }}
-                        ></i>
+                        />
                       ) : (
-                        <i
-                          className='fas fa-times'
+                        <FontAwesomeIcon
+                        icon={faTimes}
                           style={{ color: 'red' }}
-                        ></i>
+                        />
                       )}
                     </td>
 
                     <td className='admin__list__btn'>
                       <Link to={`/admin/user/${user._id}/edit`}>
-                        <button className='btn admin__list__edit'>
-                          <i className='fas fa-edit'></i>
+                        <button className='btn common__list__edit'>
+                          <FontAwesomeIcon
+                            icon={faEdit}
+                          />
                         </button>
                       </Link>
                       <button
                         className='btn'
                         onClick={() => deleteHandler(user._id)}
                       >
-                        <i className='fas fa-trash'></i>
+                        <FontAwesomeIcon
+                          icon={faTimes}
+                        />
                       </button>
                     </td>
                   </tr>
